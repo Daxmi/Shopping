@@ -8,18 +8,15 @@ import Method from "./components/Method";
 
 
 function App() {
-  
   const { products } = data;
-  
   const [cartItems, setCartItems] = useState([]);
-
-  
+ 
   const onAdd = (product) => {
-    const exist = cartItems.find((x) => x.id === product.id);
-    if (exist) {
+    const prevItems = cartItems.find((x) => x.id === product.id);
+    if (prevItems) {
       setCartItems(
         cartItems.map((x) =>
-          x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
+          x.id === product.id ? { ...prevItems, qty: prevItems.qty + 1 } : x
         )
       );
     } else {
@@ -29,13 +26,13 @@ function App() {
     console.log(cartItems);
   };
   const onRemove = (product) => {
-    const exist = cartItems.find((x) => x.id === product.id);
-    if (exist.qty === 1) {
+    const prevItems = cartItems.find((x) => x.id === product.id);
+    if (prevItems.qty === 1) {
       setCartItems(cartItems.filter((x) => x.id !== product.id));
     } else {
       setCartItems(
         cartItems.map((x) =>
-          x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x
+          x.id === product.id ? { ...prevItems, qty: prevItems.qty - 1 } : x
         )
       );
     }
@@ -45,9 +42,27 @@ function App() {
   const displayContent = () => {
     setShouldDisplay((prevDisplay) => !prevDisplay);
   };
+
+
+  const checkout = ()=>{
+    const squad = window.payco
+    
+      const squadInstance = new squad({
+        onClose: () => console.log('Widget closed'),
+        onLoad: () => console.log('Widget loaded successfully'),
+        onSuccess: () => console.log(`Linked successfully`),
+        key: 'test_pk_sample-public-key-1',
+        email:"test@gmail.com",
+        amount:10000,
+      });
+      squadInstance.setup();
+      squadInstance.open();
+      
+    
+  }
   return (
     <div>
-      <Header countCartItems={cartItems.length} />
+      <Header countCartItems={cartItems} />
       <div className="App">
         <div
           style={{ display: shouldDisplay && "none" }}
@@ -76,7 +91,7 @@ function App() {
           <div className="continue" onClick={displayContent}>
             Continue
           </div>
-          <div className="checkout">Checkout</div>
+          <div className="checkout" onClick={checkout}>Checkout</div>
         </div>
       </div>
     </div>

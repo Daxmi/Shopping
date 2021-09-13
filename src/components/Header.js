@@ -13,6 +13,7 @@ const headersData = [
   {
     label: "Cart",
     href: "/logout",
+    showCart: true,
   },
 ];
 function Header(props) {
@@ -27,7 +28,15 @@ function Header(props) {
       </div>
       <hr />
       <div className="heading">
-        {headersData.map(({ label, href }) => {
+        {headersData.map(({ label, href, showCart }) => {
+          if (showCart) {
+            return (
+              <>
+                <Button key={label} label={label} />
+                <span>{countCartItems.reduce((a, c) => a + c.qty, 0)}</span>
+              </>
+            );
+          }
           return <Button key={label} label={label} />;
         })}
       </div>

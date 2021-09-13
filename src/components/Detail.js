@@ -21,8 +21,8 @@ const Info = {
 export default function Detail() {
   return (
     <div className="detail">
-      <Input name="Full name" placeholder="email.address@us.com" type="text" />
-      <Input name="Email Address" placeholder="Password" type="password" />
+      <Input name="Full name" id="full-name" placeholder="email.address@us.com" type="text" />
+      <Input name="Email Address" id="email-address" placeholder="Password" type="password" />
     </div>
   );
 }

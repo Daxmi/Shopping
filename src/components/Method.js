@@ -3,7 +3,6 @@ import payment from '../payment'
 
 export default function Method() {
     const {method} = payment;
-    console.log(method)
     return (
         <div className="payment">
             {method.map(eachMethod => {

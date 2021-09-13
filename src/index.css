@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100&display=swap");
+:root {
+  --primary: #3a3939;
+  --white: #ffffff;
+}
 * {
   margin: 0;
 }
@@ -13,7 +17,7 @@ body {
 }
 .topCategory h1 {
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 700;
   font-family: Inter;
   color: #4d4d4d;
   line-height: 18px;
@@ -36,7 +40,7 @@ hr {
 .headersList {
   padding: 0 25px;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 700;
   font-family: Inter;
   color: #4d4d4d;
   line-height: 18px;
@@ -154,14 +158,14 @@ hr {
   font-family: Inter;
   font-size: 16px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 700;
   color: #0d0d0d;
 }
 .choose h1 {
   font-family: Inter;
   font-size: 12px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 26px;
   letter-spacing: 0em;
   text-align: left;
@@ -197,7 +201,7 @@ hr {
   font-family: Inter;
   font-size: 12px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 700;
   line-height: 16px;
   letter-spacing: 0px;
   text-align: left;
@@ -312,7 +316,7 @@ hr {
     font-family: Inter;
     font-size: 14px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 700;
     line-height: 18px;
     letter-spacing: 0em;
     text-align: left;
